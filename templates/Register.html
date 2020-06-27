@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" >Register</button>
+</form>
+{% if Register %}
+{%for x in Register %}
+{{x}}<br>
+{%endfor%}
+{%endif%}
+</body>
+</html>
+{%endblock%}

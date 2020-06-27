@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="pink">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">FunctionHall Booking Details</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'about_project' %}">About Function Hall</a></li>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li class="active"><a href="{% url 'Register' %}">Register</a></li>
+            <li class="active"><a href="{% url 'log_in' %}">Login</a></li>
+            <li class="active"><a href="{% url 'search' %}">Search</a></li>
+            <li class="active"><a href="{% url 'contact_details' %}">Contact us</a></li>
+
+
+        </ul>
+    </div>
+</nav>
+{% block content %} {% endblock %}
+</body>
+</html>
