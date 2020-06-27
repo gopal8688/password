@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Registration
-from .forms import RegistrationForm
+from .models import Registration, Search
+from .forms import RegistrationForm, SearchForm
 from django.core.mail import send_mail
 from password_reset import settings
 from django.contrib import messages
@@ -66,7 +66,7 @@ def forget_password(request):
             otp = random.randint(5000, 9999)
             b.update(password=otp)
             subject = 'password'
-            message = '{}this is the one time otp'.format(str(otp))
+            message = '{} this is the one time otp'.format(str(otp))
             send_mail(subject, message, settings.EMAIL_HOST_USER, [email, ])
             return render(request, 'otp_verify.html', {'msg': 'otp send to your mail'})
         else:
@@ -78,8 +78,8 @@ def forget_password(request):
 
 def new_password(request):
     password = request.POST['password']
-    password1 = request.POST['password1']
-    if password == password1:
+    confirmpassword = request.POST['confirmpassword']
+    if password == confirmpassword:
         d = Registration.objects.filter(id=request.GET['id'])
         d.update(password=password)
         messages.success(request, 'password succesfully changed')
@@ -99,8 +99,18 @@ def verify_otp(request):
         return redirect('forget_password')
 
 
-def search(request):
-    return HttpResponse('No data implemeted')
+def Search(request):
+    if request.method == 'POST':
+        search = SearchForm(request.POST)
+        if search.is_valid():
+            search.save()
+            return redirect('Search')
+
+        else:
+            return redirect('Search')
+    else:
+        search = SearchForm()
+        return render(request, 'search.html', {'search': search})
 
 
 def contact_details(request):

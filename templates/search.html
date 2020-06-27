@@ -7,14 +7,12 @@
     <title>Title</title>
 </head>
 <body>
-{% if register %}
-<h1>Registration Details</h1>
-{% for regi in register %}
-{{regi.first_name}}<br><br>
-{%endfor%}
-{%else%}
-No one Booking
-{%endif%}
+<form method="post" action="{% url 'Search' %}">
+    {%csrf_token%}
+    {{search}}
+    <input type="submit" value="save">
+
+</form>
 </body>
 </html>
 {% endblock %}

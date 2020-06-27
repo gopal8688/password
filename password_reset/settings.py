@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'password_app',
 ]
+# REST_FRAMEWORK = {
+#     'DATETIME_FORMAT': "%b %d %Y %I:%M %p"
+# }
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
