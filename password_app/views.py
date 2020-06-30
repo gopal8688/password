@@ -119,3 +119,4 @@ def contact_details(request):
 
 def about_project(request):
     return HttpResponse('No data implemeted yet')
+"hiii this completed"
