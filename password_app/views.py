@@ -114,8 +114,8 @@ def Search(request):
 
 
 def contact_details(request):
-    return HttpResponse('No data implemeted')
+    return render(request,'contact_details.html')
 
 
 def about_project(request):
-    return HttpResponse('No data implemeted')
+    return HttpResponse('No data implemeted yet')
